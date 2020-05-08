@@ -32,7 +32,7 @@ public class GeoWarsApp extends GameApplication {
     }
 
     /**
-     *
+     * Reference to the factory which will defines how all the types must be created.
      */
     private final GeoWarsFactory geoWarsFactory = new GeoWarsFactory();
 
