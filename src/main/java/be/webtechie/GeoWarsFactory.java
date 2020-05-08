@@ -19,6 +19,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * The factory which defines how each entity looks like
+ */
 public class GeoWarsFactory implements EntityFactory {
 
     private Entity player;
