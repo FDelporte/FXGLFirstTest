@@ -82,7 +82,6 @@ public class GeoWarsApp extends GameApplication {
 
         // Add the player
         this.player = spawn("player", getAppWidth() / 2 - 15, getAppHeight() / 2 - 15);
-        this.geoWarsFactory.setPlayer(this.player);
 
         // Add a new enemy every second
         run(() -> spawn("enemy"), Duration.seconds(1.0));

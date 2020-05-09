@@ -4,6 +4,7 @@ import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
 import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
 import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
 import static com.almasb.fxgl.dsl.FXGL.getInput;
+import static com.almasb.fxgl.dsl.FXGLForKtKt.getGameWorld;
 
 import be.webtechie.GeoWarsApp.EntityType;
 import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
@@ -23,12 +24,6 @@ import javafx.scene.shape.Rectangle;
  * The factory which defines how each entity looks like
  */
 public class GeoWarsFactory implements EntityFactory {
-
-    private Entity player;
-
-    public void setPlayer(Entity player) {
-        this.player = player;
-    }
 
     @Spawns("player")
     public Entity newPlayer(SpawnData data) {
@@ -57,7 +52,8 @@ public class GeoWarsFactory implements EntityFactory {
 
     @Spawns("bullet")
     public Entity newBullet(SpawnData data) {
-        Point2D direction = getInput().getMousePositionWorld().subtract(this.player.getCenter());
+        Entity player = getGameWorld().getSingleton(EntityType.PLAYER);
+        Point2D direction = getInput().getMousePositionWorld().subtract(player.getCenter());
 
         return entityBuilder()
                 .from(data)
